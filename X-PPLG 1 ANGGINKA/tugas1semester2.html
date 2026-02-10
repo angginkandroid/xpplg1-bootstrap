@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link 
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+
+    <style>
+        .hero {
+            background-image: url(asset/jajajaj.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(o, 0, 0, 0.5);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+    <div 
+        class="overlay d-flex justify-content-center align-items-center text-center"
+    >
+        <div class="text-white">
+            <h1 class="display-5 fw-bold">Sistem Manajemen Siswa</h1>
+            <p class="fs-5">Kelola data, kehadiran, profil, dan status akademi siswa.</p>
+            <button class="btn btn-primary btn-lg">Lihat Tabel</button>
+            <button class="btn btn-outline-light"> Daftar</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="container text-center ">
+        <h2>Tabel Data Siswa </h2>
+        <p>Contoh penggunaan Tabel, Gambar. dan Button Bootstrap. </p>
+
+    <table class="table table-bordered table-striped table-hover ">
+        <thead class="align-middle text-center">
+            <tr class="table-dark ">
+                <th>No</th>
+                <th>Foto</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle text-center">
+            <tr>
+                <td>1</td>
+                <td>
+                    <img src="asset/nanami.jpg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb"> Nanami </td>
+                <td class="editb">X-PPLG 9</td>
+                <td><span class="badge bg-success">Aktif</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <img src="asset/gojo.jpg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb">Gojo Satoru </td>
+                <td class="editb">X-PPLG 1</td>
+                <td><span class="badge bg-warning">Izin</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <img src="asset/my....jpg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb"> Jaekyung</td>
+                <td class="editb">X-PPLG 5</td>
+                <td><span class="badge bg-danger">Alfa</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <div class="text-center align-middle">
+    </div>
+    <button class="btn btn-primary btn-sm">Tambah Data</button>
+    <button class="btn btn-light btn-sm">Eksplor Excel</button>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('tr').remove();
+            });
+        });
+
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const editbs = row.querySelectorAll('.editb');
+                
+                if (this.textContent === 'Edit') {
+                    editbs.forEach(cell => cell.contentEditable = true);
+                    this.textContent = 'Save';
+                    this.classList.replace('btn-warning', 'btn-success');
+                } else {
+                    editbs.forEach(cell => cell.contentEditable = false);
+                    this.textContent = 'Edit';
+                    this.classList.replace('btn-success', 'btn-warning');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
